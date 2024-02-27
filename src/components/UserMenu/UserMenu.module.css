@@ -1,0 +1,27 @@
+/* Style the wrapper containing the welcome message and logout button */
+.wrapper {
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+  gap: 20px; /* Add spacing between elements */
+}
+
+/* Style the welcome message */
+.username {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Style the logout button */
+.logoutButton {
+  background-color: #ff6347; /* Set background color */
+  color: #fff; /* Set text color */
+  border: none; /* Remove border */
+  padding: 10px 20px; /* Add padding */
+  border-radius: 5px; /* Add border radius */
+  cursor: pointer; /* Add pointer cursor */
+}
+
+/* Style the logout button when hovered */
+.logoutButton:hover {
+  background-color: #cc4a33; /* Change background color on hover */
+}

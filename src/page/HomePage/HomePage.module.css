@@ -1,0 +1,15 @@
+.phone {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+.text {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 500px;
+  font-size: 20px;
+  margin-top: 20px;
+}
+.span {
+  color: #ff8000;
+}

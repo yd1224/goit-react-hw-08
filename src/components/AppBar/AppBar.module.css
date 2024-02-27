@@ -1,0 +1,9 @@
+header {
+  background-color: #333; /* Set background color */
+  color: white; /* Set text color */
+  padding: 10px 20px; /* Add padding */
+  display: flex; /* Use flexbox to align items */
+  justify-content: space-between; /* Space items evenly */
+  align-items: center; /* Align items vertically */
+  z-index: 1000;
+}
