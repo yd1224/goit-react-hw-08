@@ -1,6 +1,6 @@
-import css from "./RegisterForm.module.css";
+import css from "./LogInForm.module.css";
 import { useDispatch, useSelector } from "react-redux";
-import { register } from "../../redux/auth/operations";
+import { login } from "../../redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
@@ -8,16 +8,14 @@ import { useEffect } from "react";
 import toast from "react-hot-toast";
 // import { selectError } from "../../redux/auth/selectors";
 
-export const RegisterForm = () => {
+export const LogInForm = () => {
   const dispatch = useDispatch();
 
   const contactSchema = Yup.object().shape({
     password: Yup.string().min(7, "Too Short!").required("Required"),
-    name: Yup.string().required("Required"),
     email: Yup.string().email("Invalid email").required("Required"),
   });
 
-  const userId1 = useId();
   const userId2 = useId();
   const userId3 = useId();
   //   const error = useSelector(selectError);
@@ -35,27 +33,17 @@ export const RegisterForm = () => {
       </div>
       <Formik
         initialValues={{
-          name: "",
           email: "",
           password: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(register(values));
+          dispatch(login(values));
           actions.resetForm();
         }}
         validationSchema={contactSchema}
       >
         {({ isSubmitting }) => (
           <Form className={css.form}>
-            <label className={css.label} htmlFor={userId1}>
-              Username
-            </label>
-            <Field
-              className={css.input}
-              type="text"
-              name="name" // corrected name prop
-              id={userId1}
-            />
             <ErrorMessage className={css.err} name="name" component="p" />
             <label className={css.label} htmlFor={userId2}>
               Email
@@ -82,7 +70,7 @@ export const RegisterForm = () => {
               type="submit"
               disabled={isSubmitting}
             >
-              Register
+              Log In
             </button>
           </Form>
         )}

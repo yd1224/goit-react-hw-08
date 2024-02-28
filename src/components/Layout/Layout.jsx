@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import { ColorRing } from "react-loader-spinner";
 import css from "./Layout.module.css";
-
+import { Toaster } from "react-hot-toast";
 export const Layout = () => {
   return (
     <>
@@ -26,6 +26,7 @@ export const Layout = () => {
       >
         <Outlet />
       </Suspense>
+      <Toaster position="top-right"></Toaster>
     </>
   );
 };

@@ -238,3 +238,8 @@ body {
     border-radius: 50%;
   }
 }
+
+.colorRingWrapperBox {
+  display: flex;
+  justify-content: center;
+}

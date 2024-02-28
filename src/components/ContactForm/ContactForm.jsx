@@ -12,13 +12,13 @@ const ContactForm = forwardRef(({ flag, id, setFlag }, ref) => {
   const btnRef = useRef();
 
   const [name, setName] = useState("");
-  const [phone, setPhone] = useState("");
+  const [number, setPhone] = useState("");
   const contactSchema = Yup.object().shape({
     name: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .required("Required"),
-    phone: Yup.string()
+    number: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
       .matches(
@@ -40,14 +40,14 @@ const ContactForm = forwardRef(({ flag, id, setFlag }, ref) => {
       btnRef.current.innerText = "Save changes";
       if (contact) {
         setName(contact.name);
-        setPhone(contact.phone);
+        setPhone(contact.number);
       }
     } else {
       // Reset initial values if flag is not "change"
       setName("");
       setPhone("");
     }
-  }, [flag, id, contacts, name, phone]);
+  }, [flag, id, contacts, name, number]);
 
   return (
     <>
@@ -55,13 +55,14 @@ const ContactForm = forwardRef(({ flag, id, setFlag }, ref) => {
         enableReinitialize
         initialValues={{
           name: name,
-          phone: phone,
+          number: number,
         }}
         onSubmit={(values, actions) => {
           if (flag === "change") {
             dispatch(changeContact({ values, contacts, id }));
             setFlag("delete");
           } else {
+            console.log(values);
             dispatch(addContact({ values, contacts }));
           }
 
@@ -84,11 +85,11 @@ const ContactForm = forwardRef(({ flag, id, setFlag }, ref) => {
             <Field
               className={css.input}
               type="text"
-              name="phone"
+              name="number"
               id={userId2}
               placeholder="Enter a number (e.g., 111-22-33)"
             />
-            <ErrorMessage className={css.err} name="phone" component="p" />
+            <ErrorMessage className={css.err} name="number" component="p" />
             <button
               ref={btnRef}
               className={css.btn}

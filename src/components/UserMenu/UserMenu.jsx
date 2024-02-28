@@ -1,17 +1,18 @@
 import React from "react";
 import { useDispatch } from "react-redux";
-// import { logOut } from "../../redux/auth/operations";
-// import { useAuth } from "../../hooks";
+import { useAuth } from "../../hooks/useAuth";
 import css from "./UserMenu.module.css";
 import IconButton from "@mui/material/IconButton";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import Typography from "@mui/material/Typography";
+import { logout } from "../../redux/auth/operations";
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
-  //   const { user } = useAuth();
+  const { user } = useAuth();
+  console.log(user);
   //   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -53,15 +54,12 @@ export const UserMenu = () => {
         >
           <div className="wrapper1">
             <Typography variant="body1" className="text">
-              ooooooooo
-              {/* {user.name} */}
+              {user.name}
             </Typography>
-
-            <MenuItem
-            //   onClick={() => dispatch(logOut())}
-            >
-              Log Out
-            </MenuItem>
+            <Typography variant="body1" className="text">
+              {user.email}
+            </Typography>
+            <MenuItem onClick={() => dispatch(logout())}>Log Out</MenuItem>
           </div>
         </Menu>
       </div>

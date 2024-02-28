@@ -7,7 +7,7 @@ import { FetchContacts } from "../../redux/operations";
 import { useSelector } from "react-redux";
 import { selectContactsNumber, selectError } from "../../redux/selectors";
 import { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -50,7 +50,6 @@ export default function ContactsPage() {
       <ContactForm ref={SearchRef} flag={flag} id={id} setFlag={setFlag} />
       <SearchBox />
       <ContactList handleScroll={handleScroll} />
-      <Toaster position="top-right"></Toaster>
     </div>
   );
 }
