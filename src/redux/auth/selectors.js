@@ -6,4 +6,4 @@ export const selectUser = (state) => {
 };
 
 export const selectIsRefreshing = (state) => state.auth.isRefreshing;
-// export const selectError = (state) => state.auth.error;
+export const selectError = (state) => state.auth.error;

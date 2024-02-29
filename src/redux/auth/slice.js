@@ -31,10 +31,19 @@ const authSlice = createSlice({
       .addCase(RefreshUser.fulfilled, (state, action) => {
         state.user = action.payload;
         state.isLoggedIn = true;
+      })
+      .addCase(register.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(login.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(logout.rejected, (state, action) => {
+        state.error = action.payload;
+      })
+      .addCase(RefreshUser.rejected, (state) => {
+        state.isRefreshing = false;
       }),
-  // .builder.addCase(register.rejected, (state, action) => {
-
-  // }),
 });
 
 export const authReducer = authSlice.reducer;

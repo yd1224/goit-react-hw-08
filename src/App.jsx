@@ -5,6 +5,8 @@ import { useDispatch } from "react-redux";
 import { useAuth } from "./hooks/useAuth";
 import { ColorRing } from "react-loader-spinner";
 import { RefreshUser } from "./redux/auth/operations";
+import { RestrictedRoute } from "./components/RestrictedRout";
+import { PrivateRoute } from "./components/PrivateRout";
 
 const HomePage = lazy(() => import("./page/HomePage/HomePage"));
 const ContactsPage = lazy(() => import("./page/ContactsPage/ContactsPage"));
@@ -33,9 +35,24 @@ function App() {
     <Routes>
       <Route element={<Layout />}>
         <Route index element={<HomePage />} />
-        <Route path="/contacts" element={<ContactsPage />} />
-        <Route path="/register" element={<RegisterPage />} />
-        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/contacts"
+          element={
+            <PrivateRoute component={ContactsPage} redirectTo="/login" />
+          }
+        />
+        <Route
+          path="/register"
+          element={
+            <RestrictedRoute component={RegisterPage} redirectTo="/contacts" />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <RestrictedRoute component={LoginPage} redirectTo="/contacts" />
+          }
+        />
       </Route>
     </Routes>
   );
