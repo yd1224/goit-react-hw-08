@@ -12,7 +12,6 @@ import { logout } from "../../redux/auth/operations";
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  console.log(user);
   //   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
 
