@@ -8,11 +8,12 @@ import MenuItem from "@mui/material/MenuItem";
 import Menu from "@mui/material/Menu";
 import Typography from "@mui/material/Typography";
 import { logout } from "../../redux/auth/operations";
+import toast from "react-hot-toast";
 
 export const UserMenu = () => {
   const dispatch = useDispatch();
   const { user } = useAuth();
-  //   const [auth, setAuth] = React.useState(true);
+
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleMenu = (event) => {
@@ -58,7 +59,20 @@ export const UserMenu = () => {
             <Typography variant="body1" className="text">
               {user.email}
             </Typography>
-            <MenuItem onClick={() => dispatch(logout())}>Log Out</MenuItem>
+            <MenuItem
+              onClick={() =>
+                dispatch(logout())
+                  .unwrap()
+                  .then(() => {
+                    toast.success("Logout success");
+                  })
+                  .catch(() => {
+                    toast.error("Logout error");
+                  })
+              }
+            >
+              Log Out
+            </MenuItem>
           </div>
         </Menu>
       </div>

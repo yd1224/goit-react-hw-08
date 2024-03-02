@@ -1,12 +1,10 @@
 import css from "./RegisterForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { register } from "../../redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
-import { useEffect } from "react";
 import toast from "react-hot-toast";
-// import { selectError } from "../../redux/auth/selectors";
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
@@ -20,13 +18,7 @@ export const RegisterForm = () => {
   const userId1 = useId();
   const userId2 = useId();
   const userId3 = useId();
-  //   const error = useSelector(selectError);
 
-  //   useEffect(() => {
-  //     if (error.length > 0) {
-  //       toast.error(error);
-  //     }
-  //   }, [error]);
   return (
     <>
       <div className={css.background}>
@@ -40,7 +32,14 @@ export const RegisterForm = () => {
           password: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(register(values));
+          dispatch(register(values))
+            .unwrap()
+            .then(() => {
+              toast.success("Registration success");
+            })
+            .catch(() => {
+              toast.error("Registration error");
+            });
           actions.resetForm();
         }}
         validationSchema={contactSchema}

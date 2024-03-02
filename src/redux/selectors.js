@@ -23,7 +23,7 @@ export const selectVisibleContacts = createSelector(
           weight: 0.3,
         },
         {
-          name: "phone",
+          name: "number",
           weight: 0.7,
         },
       ],

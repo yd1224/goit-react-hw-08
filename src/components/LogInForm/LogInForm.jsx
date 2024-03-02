@@ -1,12 +1,10 @@
 import css from "./LogInForm.module.css";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../../redux/auth/operations";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import * as Yup from "yup";
 import { useId } from "react";
-import { useEffect } from "react";
 import toast from "react-hot-toast";
-// import { selectError } from "../../redux/auth/selectors";
 
 export const LogInForm = () => {
   const dispatch = useDispatch();
@@ -18,13 +16,7 @@ export const LogInForm = () => {
 
   const userId2 = useId();
   const userId3 = useId();
-  //   const error = useSelector(selectError);
 
-  //   useEffect(() => {
-  //     if (error.length > 0) {
-  //       toast.error(error);
-  //     }
-  //   }, [error]);
   return (
     <>
       <div className={css.background}>
@@ -37,7 +29,14 @@ export const LogInForm = () => {
           password: "",
         }}
         onSubmit={(values, actions) => {
-          dispatch(login(values));
+          dispatch(login(values))
+            .unwrap()
+            .then(() => {
+              toast.success("Login success");
+            })
+            .catch(() => {
+              toast.error("Login error");
+            });
           actions.resetForm();
         }}
         validationSchema={contactSchema}

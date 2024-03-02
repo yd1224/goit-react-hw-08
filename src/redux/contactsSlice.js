@@ -5,7 +5,6 @@ import {
   addContact,
   changeContact,
 } from "./operations";
-// import { nanoid } from "nanoid";
 
 const contactsSlice = createSlice({
   name: "contacts",

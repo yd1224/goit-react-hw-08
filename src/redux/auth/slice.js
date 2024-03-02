@@ -5,7 +5,6 @@ const initialState = {
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
-  error: "",
 };
 
 const authSlice = createSlice({
@@ -32,18 +31,21 @@ const authSlice = createSlice({
         state.user = action.payload;
         state.isLoggedIn = true;
       })
-      .addCase(register.rejected, (state, action) => {
-        state.error = action.payload;
-      })
-      .addCase(login.rejected, (state, action) => {
-        state.error = action.payload;
-      })
-      .addCase(logout.rejected, (state, action) => {
-        state.error = action.payload;
-      })
+
       .addCase(RefreshUser.rejected, (state) => {
         state.isRefreshing = false;
       }),
 });
 
 export const authReducer = authSlice.reducer;
+
+// error: "",
+// .addCase(register.rejected, (state, action) => {
+//   state.error = action.payload;
+// })
+// .addCase(login.rejected, (state, action) => {
+//   state.error = action.payload;
+// })
+// .addCase(logout.rejected, (state, action) => {
+//   state.error = action.payload;
+// })

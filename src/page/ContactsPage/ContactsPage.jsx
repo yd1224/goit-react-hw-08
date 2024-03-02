@@ -8,6 +8,7 @@ import { useSelector } from "react-redux";
 import { selectContactsNumber, selectError } from "../../redux/selectors";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { DocTitle } from "../../components/DocTitle";
 
 export default function ContactsPage() {
   const dispatch = useDispatch();
@@ -42,6 +43,7 @@ export default function ContactsPage() {
 
   return (
     <div>
+      <DocTitle>Contacts</DocTitle>
       <div className="wrapper">
         <h1>Phonebook</h1>
         <h2 className="num">{contactsNumber} contacts</h2>
