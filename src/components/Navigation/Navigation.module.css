@@ -10,3 +10,13 @@
   background-color: #555; /* Change background color on hover */
   border-radius: 5px; /* Add border radius */
 }
+@media only screen and (min-width: 320px) {
+  .link {
+    color: #fff; /* Text color */
+    text-decoration: none; /* Remove underline */
+    padding: 10px 20px; /* Add padding */
+    margin-right: 5px; /* Add margin between links */
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}

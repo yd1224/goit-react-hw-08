@@ -13,3 +13,9 @@
 .span {
   color: #ff8000;
 }
+@media only screen and (min-width: 320px) {
+  .text {
+    padding-left: 6px;
+    padding-right: 6px;
+  }
+}

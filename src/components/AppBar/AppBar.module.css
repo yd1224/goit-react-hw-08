@@ -7,3 +7,19 @@ header {
   align-items: center; /* Align items vertically */
   z-index: 1000;
 }
+@media only screen and (min-width: 320px) {
+  header {
+    padding: 15px 0px; /* Add padding */
+  }
+}
+@media only screen and (min-width: 767.98px) {
+  header {
+    background-color: #333; /* Set background color */
+    color: white; /* Set text color */
+    padding: 10px 20px; /* Add padding */
+    display: flex; /* Use flexbox to align items */
+    justify-content: space-between; /* Space items evenly */
+    align-items: center; /* Align items vertically */
+    z-index: 1000;
+  }
+}
