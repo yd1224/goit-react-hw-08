@@ -8,6 +8,25 @@
 body {
   background-color: #242424;
 }
+.form {
+  height: 520px;
+  width: 299px;
+  background-color: rgba(255, 255, 255, 0.13);
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 60%;
+  left: 50%;
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
+  padding: 50px 35px;
+}
+.shape:first-child {
+  background: linear-gradient(#fa3008, #f48f03);
+  left: -300px;
+  top: -3px;
+}
 .background {
   max-width: 430px;
   height: 520px;
@@ -29,12 +48,12 @@ body {
 }
 .shape:last-child {
   background: linear-gradient(to right, #ff512f, #f09819);
-  right: -241px;
+  right: -100px;
   bottom: -80px;
 }
 .form {
   height: 520px;
-  width: 400px;
+  max-width: 400px;
   background-color: rgba(255, 255, 255, 0.13);
   position: absolute;
   transform: translate(-50%, -50%);
@@ -116,25 +135,30 @@ body {
 .err {
   color: #ff512f;
 }
-@media only screen and (min-width: 320px) {
+@media only screen and (min-width: 1280px) {
+  .shape:first-child {
+    background: linear-gradient(#fa3008, #f48f03);
+    left: -300px;
+    top: -80px;
+  }
+  .shape:last-child {
+    background: linear-gradient(to right, #ff512f, #f09819);
+    right: -241px;
+    bottom: -80px;
+  }
   .form {
     height: 520px;
-    width: 299px;
+    width: 400px;
     background-color: rgba(255, 255, 255, 0.13);
     position: absolute;
     transform: translate(-50%, -50%);
-    top: 60%;
+    top: 50%;
     left: 50%;
     border-radius: 10px;
     backdrop-filter: blur(10px);
     border: 2px solid rgba(255, 255, 255, 0.1);
     box-shadow: 0 0 40px rgba(8, 7, 16, 0.6);
     padding: 50px 35px;
-  }
-  .shape:first-child {
-    background: linear-gradient(#fa3008, #f48f03);
-    left: -300px;
-    top: -3px;
   }
 }
 @media only screen and (min-width: 767.98px) {
